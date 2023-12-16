@@ -318,6 +318,7 @@ def register(request):
         else:
             user = CustomUser.objects.create_user(username=username, email=email, password=password)
             user.business_name = bname
+            user.phone_number = number
           
             user.save()
             
@@ -400,7 +401,7 @@ def signin(request):
                 messages.success(request, 'Logged in successfully')
                 return redirect('dashboard')
             else:
-                messages.error(request, 'wrong information')
+                messages.error(request, 'Invalid Username or Password')
                 return redirect('signin')
     else:
         return redirect("home")
