@@ -483,9 +483,11 @@ def product_category(request, category):
 
 def product(request,pk):
     product = Product.objects.get(id  = pk)
+    base_url = request.build_absolute_uri('/')
+
     # category = Category.objects.get(id = pk)
     # related_product = Product.objects.filter(category__name = product.ca)
-    return render(request, 'products.html', {'product': product, }) 
+    return render(request, 'products.html', {'product': product, 'base_url' : base_url }) 
     # return render(request, 'products.html', {'product': product, 'related_product': related_product}) 
 
 
