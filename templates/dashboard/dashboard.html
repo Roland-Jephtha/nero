@@ -9,7 +9,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="html 5 template">
     <meta name="author" content="">
-    <title>Find Houses - HTML5 Template</title>
+    <title>NeroBuy</title>
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href=" {% static 'css/jquery-ui.css' %}">
@@ -80,6 +80,11 @@
                             <div class="header-user-name">
                                 <span> {%if profile.photo%}
                                     <img src="{{profile.photo.url}}" alt="avatar" >
+
+                                    {%else%}
+                                    <img src="{% static 'img/shop03.png' %}" alt="author-image" class="author__img">
+
+
                                     {%endif%}</span>Hi, {{profile.username}}!
                             </div>
                             <ul>
@@ -109,6 +114,11 @@
 
                                 {%if profile.photo%}
                                 <img src="{{profile.photo.url}}" alt="avatar" class="img-fluid profile-img">
+
+
+                                {%else%}
+                                <img src="{% static 'img/shop03.png' %}" alt="author-image" class="author__img">
+
                                 {%endif%}
                             </div>
                             <div class="active-user">

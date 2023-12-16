@@ -371,10 +371,12 @@ def profile(request):
         
             
     user_profile = Profile.objects.get(username = request.user.username)
+    base_url = request.build_absolute_uri('/')
     
     context = {
         'profile': user_profile,
-        'form': profile_form
+        'form': profile_form,
+        'base_url' : base_url
     }
 
     return render(request, "dashboard/profile.html", context)    
