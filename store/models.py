@@ -48,6 +48,8 @@ choice = (
         ("Laptop", "Laptop"),
         ("Accessories", "Accessories"),
         ("Games", "Games"),
+        ("Clothing", "Clothing"),
+        ("General", "General"),
         
     )
 
