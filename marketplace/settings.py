@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6kafa*+d)!&fi=x4nb(zsn^cd2ko0w90&oy8&p-a3yu#-t79f2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 import os
 import cloudinary_storage
