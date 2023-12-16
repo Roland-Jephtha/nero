@@ -37,7 +37,7 @@ class Profile(models.Model):
     email = models.EmailField(max_length=255, null = True)
     username = models.CharField(max_length=255, null = True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null = True)
-    photo = models.ImageField(upload_to='profile', null = True)
+    photo = models.ImageField(upload_to='profile', null = True, blank=True)
   
     
     def __str__(self):
