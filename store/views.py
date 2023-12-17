@@ -17,6 +17,22 @@ from django.shortcuts import get_object_or_404
 # from django.contrib.sites.models import Site
 
 
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from django.contrib.auth.tokens import default_token_generator
+from django.core.mail import EmailMessage
+from django.core.mail import send_mail
+from django.conf import settings
+
+from django.contrib.auth.views import PasswordResetView
+
+
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
+
 
 
 
@@ -322,6 +338,14 @@ def register(request):
           
             user.save()
             
+            
+             # email
+            subject = 'Welcome to NeroBuy'
+            email_from = settings.EMAIL_HOST_USER
+            msg_html = render_to_string('email.html', {"username":username})
+            message = f'''Hi {username}, thank you for registering On NeroBuy. Your Account Has Been Successful Created. Please Do Not Share Your Details With Anyone'''
+            send_mail( "NeroBuy welcome message", message, email_from, [email], html_message=msg_html)
+            
             store = Store.objects.create(
                 user = user,
                 name = bname
@@ -350,6 +374,18 @@ def register(request):
 
     else:
         return render(request, 'register.html')
+    
+    
+    
+    
+
+class CustomResetPasswordView(PasswordResetView):
+    template_name = 'password_reset_form.html'
+    email_template_name = 'password_reset_email.html'
+    subject_template_name = 'email_subject.txt'
+    success_url = 'password_reset/done'
+    form_class = CustomPasswordResetForm
+
     
     
     

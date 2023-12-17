@@ -1,9 +1,15 @@
 from django import forms
 from . models import *
+from django.contrib.auth.forms import PasswordResetForm
 
 
 
 
+class CustomPasswordResetForm(PasswordResetForm):
+        #Add css class
+    def __init__(self, *args, **kwargs):
+        super(CustomPasswordResetForm, self).__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs.update({'class': 'pl-5 form-control'})
 
 
 class ProfileForm(forms.ModelForm):
