@@ -102,6 +102,8 @@ WSGI_APPLICATION = 'marketplace.wsgi.application'
 
 
 
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
