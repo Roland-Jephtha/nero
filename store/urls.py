@@ -4,6 +4,7 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
+    path('sitemap', sitemap, name = "sitemap"),
     path('', home, name = "home"),
     path('dashboard', dashboard, name = "dashboard"),
     path('products_view', products_view, name = "products_view"),
