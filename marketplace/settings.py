@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'marketplace.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'companydesign$default',
-#         'USER': 'companydesign',
-#         'PASSWORD': 'speed123',
-#         'HOST': 'companydesign.mysql.pythonanywhere-services.com',
+#         'NAME': 'if0_35639270_nerobuy',
+#         'USER': 'if0_35639270',
+#         'PASSWORD': 'uxeiBcd23USE9v',
+#         'HOST': 'sql213.infinityfree.com',
 #         'PORT': '3306',
 #     }
     
@@ -102,14 +102,29 @@ WSGI_APPLICATION = 'marketplace.wsgi.application'
 
 
 
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_rT3ixctaaXVb7d21k8Z',
+        'HOST': 'pg-9ae716c-assignysite-b9b6.a.aivencloud.com',  # Replace this with the correct host
+        'PORT': '25901',  # Replace with your database port if needed
     }
 }
+
+
+
+
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
