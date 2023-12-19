@@ -164,6 +164,62 @@ def add_product(request):
     return render(request, "dashboard/add-products.html", context)
 
 
+@login_required(login_url='signin')
+
+def payment(request):
+   
+    if request.method == "POST":
+       
+        user = request.user
+        name = request.POST['name']
+        description = request.POST['description']
+        amount = request.POST['amount']
+        proof = request.FILES['proof']
+    
+            
+            
+        
+        
+
+        
+        payrecords = PayRecord.objects.create(
+            user = user,
+            account_name = name,
+            amount = amount,
+            description = description,
+            proof = proof,
+            created = timezone.now()
+          
+        )
+        
+        payrecords.save()
+        
+        messages.success(request, 'Payment was Made ')
+
+        return redirect( 'payment',)
+    
+    
+    user_profile = Profile.objects.get(username = request.user.username)
+    
+    context = {
+        'profile': user_profile,
+        # 'form': form,
+        
+        
+    }
+
+    return render(request, "dashboard/payment.html", context)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -173,8 +229,8 @@ def add_product(request):
 # update products
 class UpdateProduct(UpdateView):
     model = Product
-    fields = [ 'name','quantity', 'price', 'category', 'description']
-    template_name = 'dashboard/product_update.html'
+    fields = [ 'name', 'price',  'description']
+    template_name = 'dashboard/update.html'
     context_object_name = "product"
     success_url = reverse_lazy('add_product')
 
@@ -280,16 +336,14 @@ def dashboard(request):
     }
     return render(request, "dashboard/dashboard.html", context)
 
+
+
+@login_required(login_url='signin')
+
 def view_product(request):
 
     products = Product.objects.filter(user = request.user)
     current_time = datetime.utcnow()
-    
-    
-
-    
-    
-
     
     p = Paginator(products, 6)
     

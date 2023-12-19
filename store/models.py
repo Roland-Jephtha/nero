@@ -82,6 +82,43 @@ class Product(models.Model):
     
     
 
+class Payment(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null = True, )
+    account_name = models.CharField(max_length=255, blank = True)
+
+    description = models.TextField(blank = True)
+    Amount = models.DecimalField(max_digits=50, decimal_places=2)
+    proof = models.ImageField(upload_to='payment', null = True)
+    created = models.DateTimeField(auto_now_add=True, null  = True)
+
+        
+    def __str__(self):
+        return self.account_name 
+    
+    
+    class Meta:
+        ordering = ['-created']
+        
+        
+class PayRecord(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null = True, )
+    account_name = models.CharField(max_length=255, blank = True)
+    description = models.TextField(blank = True)
+    amount = models.DecimalField(max_digits=50, decimal_places=2)
+    proof = models.ImageField(upload_to='payment', null = True)
+    created = models.DateTimeField(null  = True)
+
+        
+    def __str__(self):
+        return str(self.account_name) + " " + "paid " + str(self.amount)
+    
+    
+    class Meta:
+        ordering = ['-created']
+    
+    
+    
+
 
 
 

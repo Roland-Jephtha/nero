@@ -7,6 +7,7 @@ urlpatterns = [
     path('sitemap', sitemap, name = "sitemap"),
     path('', home, name = "home"),
     path('dashboard', dashboard, name = "dashboard"),
+    path('payment', payment, name = "payment"),
     path('products_view', products_view, name = "products_view"),
     path('view_product', view_product, name = "view_product"),
     path('profile', profile, name = "profile"),

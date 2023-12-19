@@ -1,1 +1,1 @@
-NeroBuy: reset your password 
+NeroStore: reset your password 
