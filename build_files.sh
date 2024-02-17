@@ -1,2 +1,2 @@
-pip install --upgrade pip
+python manage.py collectstatic
 pip install -r requirements.txt
