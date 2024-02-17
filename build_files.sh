@@ -1,2 +1,2 @@
-pythom manage.py collectstatic
+python manage.py collectstatic
 pip install -r requirements.txt
